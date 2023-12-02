@@ -1,0 +1,37 @@
+
+.About-container {
+  display: flex;
+  overflow: hidden;
+}
+.About-image {
+  margin-top: 0;
+  padding-top: 2%;
+  border-radius: 0;
+  height: 100vh;
+  width: 100%;
+}
+.About {
+  width: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.about-item {
+  padding: 8%;
+}
+
+@media (max-width: 900px) {
+  body {
+    overflow: scroll;
+  }
+  .About-container {
+    flex-direction: column;
+  }
+  .About {
+    width: 100%;
+  }
+  .About-image {
+    margin-top: 0;
+    padding-top: 0%;
+  }
+}
