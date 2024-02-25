@@ -2,27 +2,25 @@
   margin: 0;
   padding: 0;
   text-decoration: none;
-  box-sizing: border-box; /* Added box-sizing for better layout consistency */
+  box-sizing: border-box;
+  /* Added box-sizing for better layout consistency */
 }
 
 .container {
-  display: grid;
-  grid-template-areas: "sidebar home";
-  grid-template-columns: 27% 1fr;
+
+  position: static;
+  z-index: 1;
 }
 
-main {
-  width: 100%;
-  grid-area: home;
-  overflow-x: hidden;
-}
+
 
 .sidebar {
   border-right: 1px solid rgba(200, 193, 193, 0.768);
   height: 100vh;
-  grid-area: sidebar;
-  position: sticky;
+  position: fixed;
   top: 0;
+  background-color: rgb(255, 255, 255);
+  width: 25%;
   transition: opacity 0.5s;
 }
 
@@ -37,7 +35,8 @@ main {
   font-size: 25px;
 }
 
-.heading { /* Corrected the typo in the class name */
+.heading {
+  /* Corrected the typo in the class name */
   background-image: url("https://storage.googleapis.com/pai-images/ff0c9abc5eea422597a01947572898f5.jpeg");
   background-repeat: no-repeat;
   -webkit-background-clip: text;
@@ -81,7 +80,7 @@ input:active {
 
 ul {
   font-size: 1.3rem;
-  color: rgb(61, 59, 59);
+  color: rgb(27, 0, 0);
   font-family: "Poppins", Arial, sans-serif;
   padding-top: 10%;
   padding-left: 8%;
@@ -118,9 +117,7 @@ ul li a:active::after {
   visibility: visible;
 }
 
-/* .sidebar-container.active {
-  
-} */
+
 .menubtn {
   visibility: hidden;
 }

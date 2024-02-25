@@ -1,0 +1,47 @@
+.SingleProduct-Container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: auto;
+    background-color: #e4dcdc;
+    padding-top: 1.5%;
+  }
+  .SingleProduct {
+    width: 810px;
+    /* Use the full width on smaller screens */
+    text-align: center;
+    padding: 2% 1%;
+    background-color: white;
+  }
+  p {
+    padding: 1.2% 2% 2% 2%;
+    text-align: start;
+    font-weight: 500;
+    color: #4d4b4b;
+  }
+  img {
+    max-width: 100%;
+    /* Ensure the image scales with the container */
+    height: auto;
+    /* Maintain aspect ratio */
+  }
+  .Heading {
+    color: #2f2f30;
+    font-size: 34.666px;
+  }
+  .Title {
+    padding-top: 2%;
+    color: #666161;
+  }
+  .Main-Content {
+    text-decoration: none;
+    text-align: start;
+  }
+  @media (max-width: 768px) {
+    .SingleProduct {
+      width: 100%;
+      /* Adjust other styles as needed for smaller screens */
+    }
+  }
+  
