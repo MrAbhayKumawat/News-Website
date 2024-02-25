@@ -7,21 +7,20 @@ function Postdetails() {
   const [loading, setLoading] = useState(true);
 
   const location = useLocation();
-  const apiurl = `https://andremoore-97bcb-default-rtdb.firebaseio.com/AndreMoore/${location.state.Postid}.json`;
+  const data = location.state
 
-  console.log(postData)
   useEffect(() => {
-    fetch(apiurl)
-      .then((response) => response.json())
-      .then((data) => {
-        setPostData(data);
-          setLoading(false);
-      })
-      .catch((error) => {
-        console.error("Error fetching data:", error);
+    
+    
+    if (data) {
+      setPostData(data);
+      setLoading(false);
+      console.log("abhay",postData)
+    } else {
+      console.error("Error fetching data:", error);
         setLoading(false);
-      });
-  }, [apiurl]);
+    }
+  }, [data]);
 
   return (
     <>
@@ -41,13 +40,13 @@ function Postdetails() {
               </div>
             ) : (
               <>
-                <h1 className="Heading">{postData?.Title}</h1>
-                <p> PublishDate - {postData?.PublishDate}</p>
+                <h1 className="Heading">{postData?.title}</h1>
+                <p> PublishDate - {postData?.publishdate}</p>
                
-                  <div className="travel-story" key={location.state.Postid}>
+                  <div className="travel-story" >
                     <div className="main-img">
                       <img
-                        src={postData.postImage}
+                        src={postData.tumbnail}
                         alt="Thumbnail"
                         className="image"
                       />
@@ -58,7 +57,7 @@ function Postdetails() {
                       <div className="author-con">
                         <div className="author-imgdev">
                           <img
-                            src={postData.postImage}
+                            src={postData.tumbnail}
                             alt="Thumbnail"
                             id="author-image"
                             style={{

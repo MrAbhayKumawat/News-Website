@@ -13,12 +13,12 @@ function Home() {
   const navigate = useNavigate();
   useEffect(() => {
     fetch(
-      "https://andremoore-97bcb-default-rtdb.firebaseio.com/AndreMoore.json"
+      "https://newsapi.org/v2/everything?q=india&apiKey=43d30257fe1543b0bdcd40ac7bbe0c4c"
     )
       .then((response) => response.json())
       .then((data) =>
         setTimeout(() => {
-          setPostData(data);
+          setPostData(data.articles);
         }, 2000)
       )
       .catch((error) => console.error("Error fetching data:", error));
@@ -32,11 +32,11 @@ function Home() {
         <div className="travel-Container">
           <div className="travel-page">
             {postData ? (
-              Object.keys(postData).map((postId) => (
-                <div className="travel-story" key={postId}>
+          postData.map((postId,index) => (
+                <div className="travel-story" key={index}>
                   <div className="main-img">
                     <img
-                      src={postData[postId].postImage}
+                      src={postId.urlToImage}
                       alt="Thumbnail"
                       className="image"
                     />
@@ -44,16 +44,21 @@ function Home() {
                   <div className="tarvel-item">
                     <h1 style={{ paddingLeft: "2%" }}>
                       {" "}
-                      {postData[postId].Title}
+                  {postId
+                  .title
+                }
                     </h1>
                     <p style={{ color: "grey" }}>
                       {" "}
-                      {postData[postId].Content.slice(0, 300)}
+                      {postId.
+content
+}
                     </p>
                     <div className="author-con">
                       <div className="author-imgdev">
                         <img
-                          src={postData[postId].postImage}
+                          src={postId.urlToImage
+                          }
                           alt="Thumbnail"
                           id="author-image"
                           style={{
@@ -79,7 +84,9 @@ function Home() {
                           >
                             Publish:
                             <span style={{ color: "#b3b3b3" }}>
-                              {postData[postId].PublishDate}
+                              {postId.
+source.name
+}
                             </span>
                           </strong>
                         </div>
@@ -89,7 +96,9 @@ function Home() {
                         className="btn"
                         onClick={() => {
                           navigate("/Postdetails", {
-                            state: { Postid: postId },
+                            state: { title:postId.title,tumbnail:postId.urlToImage,Content:postId.
+                              content,publishdate:postId.publishedAt
+                              },
                           });
                         }}
                       >
