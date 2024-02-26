@@ -15,7 +15,6 @@ function Home() {
     )
       .then((response) => response.json())
       .then((data) => {
-        console.log("Data from API:", data);
         if (data && data.articles) {
           setPostData(data.articles);
         } else {

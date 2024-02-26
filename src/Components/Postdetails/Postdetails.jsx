@@ -7,18 +7,15 @@ function Postdetails() {
   const [loading, setLoading] = useState(true);
 
   const location = useLocation();
-  const data = location.state
+  const data = location.state;
 
   useEffect(() => {
-    
-    
     if (data) {
       setPostData(data);
       setLoading(false);
-      console.log("abhay",postData)
     } else {
       console.error("Error fetching data:", error);
-        setLoading(false);
+      setLoading(false);
     }
   }, [data]);
 
@@ -42,38 +39,37 @@ function Postdetails() {
               <>
                 <h1 className="Heading">{postData?.title}</h1>
                 <p> PublishDate - {postData?.publishdate}</p>
-               
-                  <div className="travel-story" >
-                    <div className="main-img">
-                      <img
-                        src={postData.tumbnail}
-                        alt="Thumbnail"
-                        className="image"
-                      />
-                    </div>
-                    <div className="tarvel-item">
-                      <h1>{postData.Title}</h1>
-                      <p>{postData.Content}</p>
-                      <div className="author-con">
-                        <div className="author-imgdev">
-                          <img
-                            src={postData.tumbnail}
-                            alt="Thumbnail"
-                            id="author-image"
-                            style={{
-                              width: "60px",
-                              height: "60px",
-                              borderRadius: "50%",
-                            }}
-                          />
-                        </div>
+
+                <div className="travel-story">
+                  <div className="main-img">
+                    <img
+                      src={postData?.thumbnail}
+                      alt="Thumbnail"
+                      className="image"
+                    />
+                  </div>
+                  <div className="tarvel-item">
+                    <h1>{postData.title}</h1>
+                    <p>{postData.content}</p>
+                    <div className="author-con">
+                      <div className="author-imgdev">
+                        <img
+                          src={postData.thumbnail}
+                          alt="Thumbnail"
+                          id="author-image"
+                          style={{
+                            width: "60px",
+                            height: "60px",
+                            borderRadius: "50%",
+                          }}
+                        />
                       </div>
                     </div>
                   </div>
+                </div>
                 <hr />
               </>
-                      )}
-                  
+            )}
           </div>
         </div>
       </div>
